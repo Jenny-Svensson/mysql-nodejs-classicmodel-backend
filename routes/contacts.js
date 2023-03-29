@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
       console.log(err);
     }
 
-    let sql = `SELECT * FROM offices `
+    let sql = `SELECT * FROM offices JOIN employees ON offices.officeCode = employees.officeCode`;
 
     req.app.locals.con.query(sql, function(err, result) {
       if (err) {
